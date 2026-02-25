@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.9",
+    "lastTouchedAt": "2026-02-25T03:57:09.321Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-02-11T09:47:49.711Z",
+    "lastRunVersion": "2026.2.9",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "zhipu": {
+        "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+        "apiKey": "0a3e1ec14d404dccb32822bb80f2a315.1aTTGLp5H0Ghxxxx",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "glm-4.7",
+            "name": "GLM-4.7",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "glm-5",
+            "name": "GLM-5",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      },
+      "siliconflow": {
+        "baseUrl": "https://api.siliconflow.cn/v1",
+        "apiKey": "sk-whpdttoddzzqmrtgkeqgxcptzvqktoagwmxkobdgqzsnxxxx",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "deepseek-ai/DeepSeek-V3.2",
+            "name": "DeepSeek-V3.2",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192,
+            "compat": {
+              "supportsStore": false
+            }
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "list": [
+      {
+        "id": "defaults",
+        "name": "小培培",
+        "workspace": "/root/.openclaw/workspace",
+        "model": {
+          "primary": "siliconflow/deepseek-ai/DeepSeek-V3.2"
+        }
+      },
+      {
+        "id": "jika",
+        "name": "技咖",
+        "workspace": "/root/.openclaw/workspace-jika",
+        "model": {
+          "primary": "siliconflow/deepseek-ai/DeepSeek-V3.2"
+        }
+      },
+      {
+        "id": "shika",
+        "name": "师咖",
+        "workspace": "/root/.openclaw/workspace-shika",
+        "model": {
+          "primary": "siliconflow/deepseek-ai/DeepSeek-V3.2"
+        }
+      },
+      {
+        "id": "ceka",
+        "name": "测咖",
+        "workspace": "/root/.openclaw/workspace-ceka",
+        "model": {
+          "primary": "siliconflow/deepseek-ai/DeepSeek-V3.2"
+        }
+      },
+      {
+        "id": "shuka",
+        "name": "数咖",
+        "workspace": "/root/.openclaw/workspace-shuka",
+        "model": {
+          "primary": "siliconflow/deepseek-ai/DeepSeek-V3.2"
+        }
+      }
+    ]
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto"
+  },
+  "channels": {
+    "feishu": {
+	  "enabled":true,
+	  "dmPolicy":"open",
+      "groupPolicy":"open",
+      "accounts": {
+		"defaults": {
+          "enabled": true,
+          "appId": "cli_a917b69ef6f8xxxx",
+          "appSecret": "3LegOOVK15Aoo1phzsKzkguqGMzvxxxx",
+          "name": "小培培",
+          "description": "培姐的总助理，Android专业团队的协调员！"
+        },
+        "jika": {
+          "enabled": true,
+          "appId": "cli_a914e9d769f9xxxx",
+          "appSecret": "yevLIVcZNqoSAWyudqo9TdQfY0Eqxxxx",
+          "name": "技咖",
+          "description": "Android Framework深度技术专家"
+        },
+        "shika": {
+          "enabled": true,
+          "appId": "cli_a914ea055279xxxx",
+          "appSecret": "WKVFltapSL1kunvnOoMflLSIf4QSxxxx",
+          "name": "师咖",
+          "description": "技术培训专家"
+        },
+        "ceka": {
+          "enabled": true,
+          "appId": "cli_a914ea54fd38xxxx",
+          "appSecret": "JcGT9u2QStDRsMe5qTcf1dedHAT4xxxx",
+          "name": "测咖",
+          "description": "测试方案专家"
+        },
+        "shuka": {
+          "enabled": true,
+          "appId": "cli_a914ea656ff9xxxx",
+          "appSecret": "4bsYZ1byWuZGpJDyXhuL4ecOUl83xxxx",
+          "name": "数咖",
+          "description": "汇报数据专家"
+        }
+      }
+    }
+  },
+  "bindings": [
+    {
+      "agentId": "defaults",
+      "match": {
+        "channel": "feishu",
+        "accountId":"defaults"
+      }
+    },
+    {
+      "agentId": "jika",
+      "match": {
+        "channel": "feishu",
+        "accountId":"jika"
+      }
+    },
+    {
+      "agentId": "shika",
+      "match": {
+        "channel": "feishu",
+        "accountId":"shika"
+      }
+    },
+    {
+      "agentId": "ceka",
+      "match": {
+        "channel": "feishu",
+        "accountId":"ceka"
+      }
+    },
+    {
+      "agentId": "shuka",
+      "match": {
+        "channel": "feishu",
+        "accountId":"shuka"
+      }
+    }
+  ],
+  "tools": {
+    "agentToAgent": {
+      "enabled": true,
+      "allow": ["defaults", "jika", "shika", "ceka", "shuka"]
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "controlUi": {
+      "allowInsecureAuth": false
+    },
+    "auth": {
+      "mode": "token",
+      "token": "d0f5fee5e0cf4851248afddc6a777a67f98371bea26exxxx"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    }
+  },
+  "plugins": {
+    "entries": {
+      "feishu": {
+        "enabled": true
+      },
+      "qqbot": {
+        "enabled": true
+      },
+      "ddingtalk": {
+        "enabled": true
+      },
+      "wecom": {
+        "enabled": true
+      },
+      "adp-openclaw": {
+        "enabled": true
+      }
+    },
+    "installs": {
+      "qqbot": {
+        "source": "npm",
+        "spec": "@sliverp/qqbot@latest",
+        "installPath": "/root/.openclaw/extensions/qqbot",
+        "version": "1.4.4",
+        "installedAt": "2026-02-11T09:48:41.090Z"
+      },
+      "ddingtalk": {
+        "source": "npm",
+        "spec": "git+https://cnb.cool/lighthouse/lighthousebackend/openclaw-dingtalk.git",
+        "installPath": "/root/.openclaw/extensions/ddingtalk",
+        "version": "1.2.0",
+        "installedAt": "2026-02-11T09:49:01.618Z"
+      },
+      "wecom": {
+        "source": "npm",
+        "spec": "git+https://cnb.cool/lighthouse/lighthousebackend/openclaw-wecom.git",
+        "installPath": "/root/.openclaw/extensions/wecom",
+        "version": "2026.2.5",
+        "installedAt": "2026-02-11T09:49:25.555Z"
+      },
+      "adp-openclaw": {
+        "source": "npm",
+        "spec": "adp-openclaw",
+        "installPath": "/root/.openclaw/extensions/adp-openclaw",
+        "version": "0.0.24",
+        "installedAt": "2026-02-11T09:49:33.241Z"
+      }
+    }
+  }
+}
